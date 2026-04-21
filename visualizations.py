@@ -22,23 +22,23 @@ w, x = 0.4, np.arange(len(categorical_cols))
 
 # BASIC VISUALIZATIONS (CAN BE EDITED/MODIFIED)
 # Sum of Categorical Columns by Donation Status
-plt.bar(x - w/2, donated.sum(), width=w, label='Donated')
-plt.bar(x + w/2, not_dontated.sum(), width=w, label='Not Donated')
-plt.xticks(x, categorical_cols, rotation=45)
-plt.xlabel('Categorical Columns')
-plt.ylabel('Sum')
-plt.title('Sum of Categorical Columns by Donation Status')
-plt.legend()
-plt.show()
-# Mean of Categorical Columns by Donation Status
-plt.bar(x - w/2, donated.mean(), width=w, label='Donated')
-plt.bar(x + w/2, not_dontated.mean(), width=w, label='Not Donated')
-plt.xticks(x, categorical_cols, rotation=45)
-plt.xlabel('Categorical Columns')
-plt.ylabel('Mean')
-plt.title('Mean of Categorical Columns by Donation Status')
-plt.legend()
-plt.show()
+# plt.bar(x - w/2, donated.sum(), width=w, label='Donated')
+# plt.bar(x + w/2, not_dontated.sum(), width=w, label='Not Donated')
+# plt.xticks(x, categorical_cols, rotation=45)
+# plt.xlabel('Categorical Columns')
+# plt.ylabel('Sum')
+# plt.title('Sum of Categorical Columns by Donation Status')
+# plt.legend()
+# plt.show()
+# # Mean of Categorical Columns by Donation Status
+# plt.bar(x - w/2, donated.mean(), width=w, label='Donated')
+# plt.bar(x + w/2, not_dontated.mean(), width=w, label='Not Donated')
+# plt.xticks(x, categorical_cols, rotation=45)
+# plt.xlabel('Categorical Columns')
+# plt.ylabel('Mean')
+# plt.title('Mean of Categorical Columns by Donation Status')
+# plt.legend()
+# plt.show()
 
 # Distribution of Categorical Columns by Donation Status
 # for col in categorical_cols:
@@ -50,7 +50,11 @@ plt.show()
 #     plt.legend()
 #     plt.show()
 
-# Stacked bar chart (TBD)
+# Parallel coordinates
+pd.plotting.parallel_coordinates(df, class_column='whether he/she donated blood in March 2007', cols=categorical_cols)
+plt.legend(title="Whether he/she donated blood in March 2007")
+plt.title("Parallel Coordinates Plot of Categorical Columns by Donation Status")
+plt.show()
 
 
 # Scatterplot matrix
